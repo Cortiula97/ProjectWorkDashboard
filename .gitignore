@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+
+# Env & config
+.env
+.env.*
+
+# VSCode
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Log
+*.log
+
+# Cartelle temporanee
+tmp/
+temp/
+
+# Ambiente virtuale Python
+.venv/
+venv/

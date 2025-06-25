@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartFarm Dashboard - Monitoraggio Fattoria</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Aggiunto ?v=2.0 per forzare l'aggiornamento del CSS nel browser -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}?v=2.0"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- Header -->
+      <div class="dashboard-header">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+          "
+        >
+          <div>
+            <h1>🚜 SmartFarm Dashboard</h1>
+            <p>Monitoraggio in tempo reale della fattoria intelligente</p>
+          </div>
+          <div
+            class="header-controls"
+            style="display: flex; align-items: center; gap: 20px"
+          >
+            <div
+              class="refresh-control"
+              style="display: flex; align-items: center; gap: 8px"
+            >
+              <label for="refresh-rate">⏱️ Aggiornamento:</label>
+              <select
+                id="refresh-rate"
+                class="form-select form-select-sm"
+                style="
+                  min-width: 120px;
+                  padding: 6px 10px;
+                  border-radius: 6px;
+                  border: 1px solid #ced4da;
+                "
+              >
+                <option value="5000">5 secondi</option>
+                <option value="10000">10 secondi</option>
+                <option value="30000" selected>30 secondi</option>
+                <option value="60000">1 minuto</option>
+              </select>
+            </div>
+            <div
+              class="update-info"
+              id="last-update"
+              style="font-size: 0.8rem"
+            >
+              <span id="update-time">--:--</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="kpi-container" id="kpi-container">
+        <div class="loading-chart">
+          <div class="loading-spinner"></div>
+          Caricamento KPI...
+        </div>
+      </div>
+
+      <!-- System Status -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h5>⚙️ Stato Sistemi</h5>
+        </div>
+        <div class="card-body">
+          <div class="systems-grid" id="systems-status">
+            <div class="loading-chart">
+              <div class="loading-spinner"></div>
+              Caricamento sistemi...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="row">
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h5>📊 Monitoraggio Umidità</h5>
+          </div>
+          <div class="card-body">
+            <div class="chart-container" id="humidity-chart">
+              <div class="loading-chart">
+                <div class="loading-spinner"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h5>🌡️ Temperatura</h5>
+          </div>
+          <div class="card-body">
+            <div class="chart-container" id="temperature-chart">
+              <div class="loading-chart">
+                <div class="loading-spinner"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resources Chart -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h5>📈 Stato Risorse</h5>
+        </div>
+        <div class="card-body">
+          <div class="chart-container" id="resources-chart">
+            <div class="loading-chart">
+              <div class="loading-spinner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alerts Panel -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h5>⚠️ Avvisi e Raccomandazioni</h5>
+        </div>
+        <div class="card-body">
+          <div class="alerts-container" id="alerts-container">
+            <div class="loading-chart">
+              <div class="loading-spinner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aggiunto ?v=2.0 per forzare l'aggiornamento del JS nel browser -->
+    <script
+      src="{{ url_for('static', filename='js/dashboard.js') }}?v=2.0"
+    ></script>
+  </body>
+</html>

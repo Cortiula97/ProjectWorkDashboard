@@ -1,0 +1,12 @@
+# Framework web e server di produzione
+flask
+gunicorn
+
+# Librerie per la manipolazione dati e grafici
+pandas
+plotly
+numpy
+dash
+
+# Connettore per il database MySQL
+mysql-connector-python
